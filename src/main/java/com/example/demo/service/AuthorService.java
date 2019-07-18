@@ -45,8 +45,9 @@ public class AuthorService {
         return authorCreate;
     }
 
-    public Book createBook(Book book) {
-        Book bookRecovery = bookRepository.findOne(book.getId());
-        return factory.createBook(book);
+    public Book createBook(Book book, Long idAuthor) {
+        return factory.createBook(book,idAuthor);
     }
+
+
 }
