@@ -1,10 +1,8 @@
 package com.example.demo.model;
+
 import javax.persistence.*;
 
-@Entity
-@Table(name = "Author")
-public class Author {
-
+public class Group {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -13,17 +11,8 @@ public class Author {
     String name;
 
     @ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name="book_id")
-    Book book;
-
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
+    @JoinColumn(name = "participant_id")
+    Participant participant;
 
     public String getName() {
         return name;
@@ -33,11 +22,11 @@ public class Author {
         this.name = name;
     }
 
-    public Book getBook() {
-        return book;
+    public Participant getParticipant() {
+        return participant;
     }
 
-    public void setBook(Book book) {
-        this.book = book;
+    public void setParticipant(Participant participant) {
+        this.participant = participant;
     }
 }
